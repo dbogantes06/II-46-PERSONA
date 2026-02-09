@@ -83,5 +83,17 @@
     </div>
     <asp:Label ID="LblMensaje" runat="server" Text="Mensaje:" CssClass="dnone"></asp:Label>
 
+    <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_Persona" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="ID_Persona" HeaderText="ID_Persona" InsertVisible="False" ReadOnly="True" SortExpression="ID_Persona" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+            <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+            <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
+            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+            <asp:BoundField DataField="NumeroDocumento" HeaderText="NumeroDocumento" SortExpression="NumeroDocumento" />
+            <asp:BoundField DataField="TipoDocumento" HeaderText="TipoDocumento" SortExpression="TipoDocumento" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II-46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Personas] ORDER BY [Apellidos]"></asp:SqlDataSource>
 </asp:Content>
 
