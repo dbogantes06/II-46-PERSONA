@@ -32,6 +32,15 @@ Partial Public Class Persona
     Protected WithEvents TxtNombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Control RfvNombre.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RfvNombre As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''Control LblApellido.
     '''</summary>
     '''<remarks>
@@ -48,6 +57,15 @@ Partial Public Class Persona
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtApellido As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control RfvApellido.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RfvApellido As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Control LblfechaNacimiento.
@@ -95,6 +113,15 @@ Partial Public Class Persona
     Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Control RfvCorreo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RfvCorreo As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''Control LblTipoDoc.
     '''</summary>
     '''<remarks>
@@ -113,6 +140,15 @@ Partial Public Class Persona
     Protected WithEvents DdlTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''Control RfvTipoDoc.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RfvTipoDoc As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''Control LblNumeroDoc.
     '''</summary>
     '''<remarks>
@@ -129,6 +165,15 @@ Partial Public Class Persona
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtNumeroDoc As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control RfvNumeroDoc.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents RfvNumeroDoc As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Control BtnGuardar.
