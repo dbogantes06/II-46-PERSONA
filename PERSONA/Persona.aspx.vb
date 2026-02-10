@@ -26,14 +26,11 @@ Public Class Persona
 
         Dim ID As Integer = dbHelper.CrearPersona(persona)
         If ID > 0 Then
-            LblMensaje.Text = $"Persona creada con ID: {ID}"
-            LblMensaje.CssClass = "alert alert-success"
             'actualizar gridview con la base de datos
             GvPersonas.DataBind()
-            SwalUtils.ShowSwal(Me, "Éxito", $"Persona creada con ID: {ID}")
+            SwalUtils.ShowSwal(Me, "Éxito", $"Persona creada con ID: {ID}", "success")
         Else
-            LblMensaje.Text = "Error al crear la persona."
-            LblMensaje.CssClass = "alert alert-danger"
+            SwalUtils.ShowSwalError(Me, "Error", "No se pudo crear la persona.")
         End If
 
 
