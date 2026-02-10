@@ -54,9 +54,10 @@
     <%--tipoDocumento--%>
     <asp:Label ID="LblTipoDoc" runat="server" Text="Tipo de Documento:" CssClass="control-label"></asp:Label>
     <asp:DropDownList ID="DdlTipoDocumento" runat="server" CssClass="form-control">
-        <asp:ListItem Text="Cedula Juridica" Value="0"></asp:ListItem>
+        <asp:ListItem Text="Seleccione un Tipo de Documento" Value="0"></asp:ListItem>
         <asp:ListItem Text="Cedula Fisica" Value="1"></asp:ListItem>
         <asp:ListItem Text="Pasaporte" Value="2"></asp:ListItem>
+         <asp:ListItem Text="Cedula Juridica" Value="3"></asp:ListItem>
     </asp:DropDownList>
 
     <%--Validar tipo de documento--%>
@@ -81,7 +82,7 @@
     <div class="py-3">
         <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="BtnGuardar_Click" />
     </div>
-    <asp:Label ID="LblMensaje" runat="server" Text="Mensaje:" CssClass="dnone"></asp:Label>
+    <asp:Label ID="LblMensaje" runat="server" Text="Información:" CssClass="dnone"></asp:Label>
 
     <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_Persona" DataSourceID="SqlDataSource1">
         <Columns>
