@@ -54,10 +54,10 @@
     <%--tipoDocumento--%>
     <asp:Label ID="LblTipoDoc" runat="server" Text="Tipo de Documento:" CssClass="control-label"></asp:Label>
     <asp:DropDownList ID="DdlTipoDocumento" runat="server" CssClass="form-control">
-        <asp:ListItem Text="Seleccione un Tipo de Documento" Value="0"></asp:ListItem>
-        <asp:ListItem Text="Cedula Fisica" Value="1"></asp:ListItem>
-        <asp:ListItem Text="Pasaporte" Value="2"></asp:ListItem>
-         <asp:ListItem Text="Cedula Juridica" Value="3"></asp:ListItem>
+        <asp:ListItem Text="Seleccione un Tipo de Documento" Value=""></asp:ListItem>
+        <asp:ListItem Text="Cedula Fisica" Value="0"></asp:ListItem>
+        <asp:ListItem Text="Pasaporte" Value="1"></asp:ListItem>
+        <asp:ListItem Text="Cedula Juridica" Value="2"></asp:ListItem>
     </asp:DropDownList>
 
     <%--Validar tipo de documento--%>
@@ -79,22 +79,35 @@
         ControlToValidate="TxtNumeroDoc"
         ErrorMessage="Es necesario indicar el numero de documento"></asp:RequiredFieldValidator>
 
-    <div class="py-3">
-        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="BtnGuardar_Click" />
+    <asp:HiddenField ID="hfIdPersona" runat="server" />
+
+    <div class="py-3 d-flex gap-2">
+        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" />
+        <asp:Button ID="btnActualizar" runat="server" Text="Actualizar" CssClass="btn btn-warning" OnClick="btnActualizar_Click" Visible="false" />
+        <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-warning" OnClick="BtnCancelar_Click" Visible="false" />
+
     </div>
     <asp:Label ID="LblMensaje" runat="server" Text="Información:" CssClass="dnone"></asp:Label>
 
-    <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_Persona" DataSourceID="SqlDataSource1">
-        <Columns>
-            <asp:BoundField DataField="ID_Persona" HeaderText="ID_Persona" InsertVisible="False" ReadOnly="True" SortExpression="ID_Persona" />
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-            <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-            <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
-            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
-            <asp:BoundField DataField="NumeroDocumento" HeaderText="NumeroDocumento" SortExpression="NumeroDocumento" />
-            <asp:BoundField DataField="TipoDocumento" HeaderText="TipoDocumento" SortExpression="TipoDocumento" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II-46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Personas] ORDER BY [Apellidos]"></asp:SqlDataSource>
+    <div class="table-responsive rounded-3 overflow-hidden">
+        <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_Persona" DataSourceID="SqlDataSource1" CssClass=" table table-dark rounded-3 table-striped "
+            OnRowDeleting="GvPersonas_RowDeleting"
+            OnSelectedIndexChanged="GvPersonas_SelectedIndexChanged">
+            <Columns>
+                <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-primary" SelectText="<i class='bi bi-pencil-square'></i>" />
+                <asp:BoundField DataField="ID_Persona" HeaderText="ID_Persona" InsertVisible="False" ReadOnly="True" SortExpression="ID_Persona" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+                <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
+                <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+                <asp:BoundField DataField="NumeroDocumento" HeaderText="NumeroDocumento" SortExpression="NumeroDocumento" />
+                <asp:BoundField DataField="TipoDocumento" HeaderText="TipoDocumento" SortExpression="TipoDocumento" />
+                <asp:CommandField ShowDeleteButton="true" ControlStyle-CssClass="btn btn-danger" DeleteText="<i class='bi bi-trash'>" />
+            </Columns>
+        </asp:GridView>
+    </div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>"
+        ProviderName="<%$ ConnectionStrings:II-46ConnectionString.ProviderName %>"
+        SelectCommand="SELECT * FROM [Personas] ORDER BY [Apellidos]"></asp:SqlDataSource>
 </asp:Content>
 

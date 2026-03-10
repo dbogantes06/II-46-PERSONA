@@ -176,13 +176,40 @@ Partial Public Class Persona
     Protected WithEvents RfvNumeroDoc As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control BtnGuardar.
+    '''Control hfIdPersona.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents BtnGuardar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents hfIdPersona As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''Control btnGuardar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnActualizar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnActualizar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control BtnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnCancelar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control LblMensaje.
