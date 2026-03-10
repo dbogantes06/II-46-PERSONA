@@ -49,4 +49,30 @@ Public Class dbPersona
         Return Nothing
     End Function
 
+    Public Function ActualizarPersona(ByVal pPersona As Models.Persona, ByRef errorMessage As String) As Boolean
+        ' 1. Sentencia SQL
+        Dim query As String = "UPDATE Personas 
+        SET TipoDocumento = @TipoDocumento, 
+        NumeroDocumento = @Documento, 
+        Nombre = @Nombre, 
+        Apellidos = @Apellidos, 
+        FechaNacimiento = @FechaNacimiento, 
+        Correo = @Correo
+        WHERE id_Persona = @Id"
+
+        ' 2. Parámetros
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@Id", pPersona.ID_Persona},
+            {"@Nombre", pPersona.Nombre},
+            {"@FechaNacimiento", pPersona.FechaNacimiento},
+            {"@Correo", pPersona.Correo},
+            {"@Apellidos", pPersona.Apellidos},
+            {"@Documento", pPersona.NumeroDocumento},
+            {"@TipoDocumento", pPersona.TipoDocumento}
+        }
+        '3. Ejecutar la consulta
+        Return dbHelper.ExecuteNonQuery(query, parameters, errorMessage)
+    End Function
+
+
 End Class

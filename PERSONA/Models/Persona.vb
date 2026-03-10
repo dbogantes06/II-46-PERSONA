@@ -81,6 +81,8 @@
                 _correo = value
             End Set
         End Property
+
+        Public Property ID_Persona As Object
     End Class
 
 End Namespace

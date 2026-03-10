@@ -1,4 +1,5 @@
-﻿Imports PERSONA.Utils
+﻿Imports PERSONA.Models
+Imports PERSONA.Utils
 
 Public Class Persona
     Inherits System.Web.UI.Page
@@ -101,7 +102,25 @@ Public Class Persona
     End Sub
 
     Protected Sub btnActualizar_Click(sender As Object, e As EventArgs)
-        LimpiarFormulario()
+        Dim persona As New Models.Persona()
+        persona.ID_Persona = Convert.ToInt32(hfIdPersona.Value)
+        persona.Nombre = TxtNombre.Text.Trim()
+        persona.Apellidos = TxtApellido.Text.Trim()
+        persona.TipoDocumento = DdlTipoDocumento.SelectedValue
+        persona.NumeroDocumento = TxtNumeroDoc.Text.Trim()
+        persona.Correo = TxtCorreo.Text.Trim()
+        persona.FechaNacimiento = TxtfechaNacimiento.Text.Trim()
+
+        Dim errorMessage As String = ""
+        Dim resultado = dbPersona.ActualizarPersona(persona, errorMessage)
+
+        If resultado Then
+            SwalUtils.ShowSwal(Me, "Persona actualizada exitosamente.")
+            GvPersonas.DataBind() ' Refrescar el GridView después de actualizar
+            LimpiarFormulario()
+        Else
+            SwalUtils.ShowSwalError(Me, errorMessage)
+        End If
     End Sub
 
     Protected Sub LimpiarFormulario()
